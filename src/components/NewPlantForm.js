@@ -30,10 +30,12 @@ function NewPlantForm({ setPlants }) {
       body: JSON.stringify(newPlant)
     })
     .then((r) => r.json())
-    .then((data) => {
-      setNewPlant(initialValue)
-      setPlants((currentPlants) => [...currentPlants, data])
-    });
+    .then(handleNewPlant)
+  }
+
+  function handleNewPlant(data) {
+    setNewPlant(initialValue);
+    setPlants((currentPlants) => [...currentPlants, data]);
   }
 
   return (
